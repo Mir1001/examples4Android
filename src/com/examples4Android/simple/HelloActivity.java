@@ -8,6 +8,7 @@ public class HelloActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("Moj test");
         setContentView(R.layout.main);
     }
 }
