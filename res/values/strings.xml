@@ -2,4 +2,7 @@
 <resources>
     <string name="hello">Zdravo Čas! Hello World, HelloActivity!</string>
     <string name="app_name">MyFirstActivity</string>
+    <string name="btn_inc">Increment</string>
+    <string name="btn_decrement">Decrement</string>
+    <string name="btn_show">Show</string>
 </resources>

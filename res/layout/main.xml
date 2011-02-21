@@ -9,4 +9,8 @@
     android:layout_height="wrap_content" 
     android:text="@string/hello"
     />
+<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_inc" android:id="@+id/btnInc"></Button>
+<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_decrement" android:id="@+id/btnDec"></Button>
+<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_show" android:id="@+id/btnShow"></Button>
+<TextView android:text="TextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textViewPrikaz"></TextView>
 </LinearLayout>
