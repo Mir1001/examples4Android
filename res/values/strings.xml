@@ -5,4 +5,7 @@
     <string name="btn_inc">Increment</string>
     <string name="btn_decrement">Decrement</string>
     <string name="btn_show">Show</string>
+    <string name="sreset">Reset</string>
+    <color name="ozadje">#1111BB</color>
+    <string name="btn_rand">Generiraj random</string>
 </resources>
