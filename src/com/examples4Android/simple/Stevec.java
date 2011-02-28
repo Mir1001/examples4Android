@@ -1,6 +1,7 @@
 package com.examples4Android.simple;
 
 public class Stevec {
+	public static final String STEVEC_INC="INCREMENT_BUTTON"; 
   private int i;
   public Stevec() {
 	  i=10;
