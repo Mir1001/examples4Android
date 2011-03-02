@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 public class HelloActivity extends Activity implements OnClickListener {
 	public static final String TAG="HelloActivity";
-	public static final String PREF_NAME="Stevci";
+	public static final String PREF_NAME="PREF_STEVCI";  //pref ime, kamor se shranjujejo pref.
 	public static final String FILE_NAME_RANDOM="nakljucna.txt";
 	private static final int TEST_START_ACTIVITY_ID = 1;
 	Button inc, dec, show, reset, generiraj;
@@ -83,21 +83,21 @@ public class HelloActivity extends Activity implements OnClickListener {
 	}
 	
 	@Override
-	public void onResume() {
+	public void onResume() { //pref predno user vidi nastavim prave vrednosti
 		super.onResume();
-		SharedPreferences settings = getSharedPreferences(PREF_NAME,0);
-		int tmp = settings.getInt(Stevec.STEVEC_INC, 0);
-		stInc.setStanje(tmp);
-		showKlikRandom();
+		SharedPreferences settings = getSharedPreferences(PREF_NAME,0); //pref odprem preferences
+		int tmp = settings.getInt(Stevec.STEVEC_INC, 0); //pref preberem staro vrednost
+		stInc.setStanje(tmp); //pref nastavim staro vrednost (od tod naprej šteje)
+		showKlikRandom(); //pref osvežim na ekranu kar se vidi
 
 	}
 	@Override
-	public void onPause() {
+	public void onPause() { //pref uporabnik ali OS zapusti pogled, potrebno shranit
 		super.onPause();
-		SharedPreferences settings = getSharedPreferences(PREF_NAME,0);
-		SharedPreferences.Editor editor = settings.edit();
-		editor.putInt(Stevec.STEVEC_INC, stInc.getStanje());
-		editor.commit();
+		SharedPreferences settings = getSharedPreferences(PREF_NAME,0); //pref odprem
+		SharedPreferences.Editor editor = settings.edit(); //pref dam v edit mode
+		editor.putInt(Stevec.STEVEC_INC, stInc.getStanje()); //pref nastavim novo vrednost
+		editor.commit(); //pref shranim novo vrednost
 		if (myfile!=null) myfile.close();
 	}
 
