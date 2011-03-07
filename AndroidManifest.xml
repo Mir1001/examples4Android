@@ -3,8 +3,8 @@
 	package="com.examples4Android.simple" android:versionCode="1"
 	android:versionName="1.0">
 
-
-	<application android:icon="@drawable/joke" android:label="@string/app_name">
+	<!-- Step 4.2   android:name="ApplicationXXX" -->
+	<application android:name="ApplicationExample" android:icon="@drawable/joke" android:label="@string/app_name">
 		<activity android:name=".HelloActivity" android:label="@string/app_name">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
@@ -16,6 +16,11 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-
+		<!-- Ne pozabi doati  //Step 4.12 -->
+		<activity android:name=".StevecListActivity" android:label="@string/app_name">
+			<intent-filter>
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
 	</application>
 </manifest>

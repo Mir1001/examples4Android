@@ -22,22 +22,22 @@ public class HelloActivity extends Activity implements OnClickListener {
 	public static final String PREF_NAME="PREF_STEVCI";  //pref ime, kamor se shranjujejo pref.
 	public static final String FILE_NAME_RANDOM="nakljucna.txt";
 	private static final int TEST_START_ACTIVITY_ID = 1;
+	private static final int TEST_LIST_ACTIVITY_ID = 2;  //Step 4.12
 	Button inc, dec, show, reset, generiraj;
 	TextView tv_prikaz, tv_kliki;
 	EditText maxNumber;
-	Stevec mojStevec;
-	Stevec stInc,stDec;
+
 	Random rnd;
 	private int ugibaj;
 	private  PrintWriter myfile;
+	ApplicationExample app; //Step 4.3
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		app = (ApplicationExample) getApplication(); //Step 4.4
 		System.out.println("Moj test");
 		setContentView(R.layout.main);
-		mojStevec = new Stevec();
-		stInc = new Stevec(0);
-		stDec = new Stevec(0);
+
 		inc = (Button) findViewById(R.id.btnInc);
 		dec = (Button) findViewById(R.id.btnDec);
 		show = (Button) findViewById(R.id.btnShow);
@@ -55,6 +55,7 @@ public class HelloActivity extends Activity implements OnClickListener {
 		generiraj.setOnClickListener(this);
 		rnd = new Random();
 		ugibaj = rnd.nextInt(21);
+		
 
 	}
 	public void myKlik(View v) {
@@ -68,6 +69,11 @@ public class HelloActivity extends Activity implements OnClickListener {
 			//this.startActivity(moj);
 			this.startActivityForResult(moj, TEST_START_ACTIVITY_ID);
 			break;
+		case R.id.btnOpenList: //Step 4.11
+			Intent moj2=new Intent(this,StevecListActivity.class);
+			//this.startActivity(moj);
+			this.startActivityForResult(moj2, TEST_LIST_ACTIVITY_ID);
+			
 		}
 	}
 	@Override
@@ -81,13 +87,13 @@ public class HelloActivity extends Activity implements OnClickListener {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public void onResume() { //pref predno user vidi nastavim prave vrednosti
 		super.onResume();
 		SharedPreferences settings = getSharedPreferences(PREF_NAME,0); //pref odprem preferences
 		int tmp = settings.getInt(Stevec.STEVEC_INC, 0); //pref preberem staro vrednost
-		stInc.setStanje(tmp); //pref nastavim staro vrednost (od tod naprej šteje)
+		app.stInc.setStanje(tmp); //pref nastavim staro vrednost (od tod naprej šteje)
 		showKlikRandom(); //pref osvežim na ekranu kar se vidi
 
 	}
@@ -96,14 +102,14 @@ public class HelloActivity extends Activity implements OnClickListener {
 		super.onPause();
 		SharedPreferences settings = getSharedPreferences(PREF_NAME,0); //pref odprem
 		SharedPreferences.Editor editor = settings.edit(); //pref dam v edit mode
-		editor.putInt(Stevec.STEVEC_INC, stInc.getStanje()); //pref nastavim novo vrednost
+		editor.putInt(Stevec.STEVEC_INC, app.stInc.getStanje()); //pref nastavim novo vrednost
 		editor.commit(); //pref shranim novo vrednost
 		if (myfile!=null) myfile.close();
 	}
-
+	
 	private void showKlikRandom() {
 		String a;
-		a="Dec klik:"+stDec.getStanje()+" Inc klik:"+stInc.getStanje()+" Nakljucna:"+ugibaj;
+		a="Dec klik:"+app.stDec.getStanje()+" Inc klik:"+app.stInc.getStanje()+" Nakljucna:"+ugibaj;
 		tv_kliki.setText(a);
 	}
 	@Override
@@ -124,21 +130,21 @@ public class HelloActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View arg0) {
 		if (arg0.getId()==R.id.btnInc) {
-			mojStevec.inc();
-			stInc.inc();
+			app.mojStevec.inc();
+			app.stInc.inc();
 			showKlikRandom();
 			reset.setVisibility(View.VISIBLE);
 		} else
 			if (arg0.getId()==R.id.btnDec) {
-				mojStevec.dec();
-				stDec.inc();
+				app.mojStevec.dec();
+				app.stDec.inc();
 				showKlikRandom();
 			} else
 				if (arg0.getId()==R.id.btnShow) {
-					tv_prikaz.setText(""+mojStevec.getStanje());
+					tv_prikaz.setText(""+app.mojStevec.getStanje());
 				} else
 					if (arg0.getId()==R.id.btnReset) {
-						mojStevec.reset();
+						app.mojStevec.reset();
 						//tv_prikaz.setText(""+mojStevec.getStanje());
 					} else
 						if (arg0.getId()==R.id.btnGenerirajRandomDo) {

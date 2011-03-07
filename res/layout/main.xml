@@ -1,21 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" android:orientation="vertical" android:background="@color/ozadje">
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello"
-    />
-<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/linearLayoutL1">
-    <Button android:layout_width="0px" android:layout_height="wrap_content" android:text="@string/btn_inc"  android:id="@+id/btnInc" android:layout_weight="1"></Button>
-    <Button android:layout_width="0px" android:layout_height="wrap_content" android:text="@string/btn_decrement"  android:id="@+id/btnDec"  android:layout_weight="1"></Button>
-    <Button android:layout_width="0px" android:layout_height="wrap_content" android:text="@string/btn_show" android:id="@+id/btnShow"  android:layout_weight="1"></Button>
-</LinearLayout>
-<Button android:layout_height="wrap_content" android:text="@string/sreset" android:id="@+id/btnReset" android:layout_width="wrap_content" android:layout_gravity="right"></Button>
-<EditText android:layout_height="wrap_content" android:layout_width="match_parent" android:text="EditText" android:id="@+id/editTextMaxRandom"></EditText>
-<Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/btnGenerirajRandomDo" android:text="@string/btn_rand"></Button>
-<ImageButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:src="@drawable/joke" android:background="@null" android:id="@+id/imageButtonOpen" android:onClick="myKlik"></ImageButton>
-<TextView android:text="Stanje stevca" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textViewPrikaz"></TextView>
-<TextView android:text="Tukaj rezultat klikov" android:layout_height="wrap_content" android:id="@+id/textViewKliki" android:layout_width="wrap_content"></TextView>
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" android:background="@color/ozadje">
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="@string/hello" />
+	<LinearLayout android:layout_width="match_parent"
+		android:layout_height="wrap_content" android:id="@+id/linearLayoutL1">
+		<Button android:layout_width="0px" android:layout_height="wrap_content"
+			android:text="@string/btn_inc" android:id="@+id/btnInc"
+			android:layout_weight="1"></Button>
+		<Button android:layout_width="0px" android:layout_height="wrap_content"
+			android:text="@string/btn_decrement" android:id="@+id/btnDec"
+			android:layout_weight="1"></Button>
+		<Button android:layout_width="0px" android:layout_height="wrap_content"
+			android:text="@string/btn_show" android:id="@+id/btnShow"
+			android:layout_weight="1"></Button>
+	</LinearLayout>
+	<Button android:layout_height="wrap_content" android:text="@string/sreset"
+		android:id="@+id/btnReset" android:layout_width="wrap_content"
+		android:layout_gravity="right"></Button>
+	<Button android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:text="@string/goLista"
+		android:id="@+id/btnOpenList" android:onClick="myKlik"></Button>
+	<EditText android:layout_height="wrap_content"
+		android:layout_width="match_parent" android:text="EditText"
+		android:id="@+id/editTextMaxRandom"></EditText>
+	<Button android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:id="@+id/btnGenerirajRandomDo"
+		android:text="@string/btn_rand"></Button>
+	<ImageButton android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:src="@drawable/joke"
+		android:background="@null" android:id="@+id/imageButtonOpen"
+		android:onClick="myKlik"></ImageButton>
+	<TextView android:text="Stanje stevca" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/textViewPrikaz"></TextView>
+	<TextView android:text="Tukaj rezultat klikov"
+		android:layout_height="wrap_content" android:id="@+id/textViewKliki"
+		android:layout_width="wrap_content"></TextView>
+	<ToggleButton android:id="@+id/button_toggle"
+		android:text="Test" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" />
 </LinearLayout>

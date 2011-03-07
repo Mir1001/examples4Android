@@ -10,4 +10,5 @@
     <string name="btn_rand">Generiraj random</string>
     <string name="all_ok">Vse je ok</string>
     <string name="all_not_ok">Ni ok!</string>
+    <string name="goLista">Open list</string>
 </resources>

@@ -4,6 +4,15 @@ public class Stevec {
 	public static final String STEVEC_INC="PREF_INCREMENT_BUTTON";  //pref ime spremenljuvke
 	//
 	private int i;
+	private String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public Stevec() {
 		i=10;

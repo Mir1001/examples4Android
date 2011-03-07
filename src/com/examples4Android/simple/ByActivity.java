@@ -17,11 +17,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ByActivity extends Activity {
-
+	ApplicationExample app;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.byby);
+		app = (ApplicationExample) getApplication(); //Step 4.4
 
 
 	}
