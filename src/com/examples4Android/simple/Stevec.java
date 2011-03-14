@@ -5,6 +5,15 @@ public class Stevec {
 	//
 	private int i;
 	private String name;
+	private long dbID; //id  v tabeli
+
+	public long getDbID() {
+		return dbID;
+	}
+
+	public void setDbID(long dbID) {
+		this.dbID = dbID;
+	}
 
 	public String getName() {
 		return name;

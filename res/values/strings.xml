@@ -11,4 +11,9 @@
     <string name="all_ok">Vse je ok</string>
     <string name="all_not_ok">Ni ok!</string>
     <string name="goLista">Open list</string>
+    <string name="ime">Ime</string>
+    <string name="rezultat">Rezultat</string>
+    <string name="dodaj">Save</string>
+    <string name="list_rezultati">Prikaži rezultate</string>
+    <string name="exit">Izhod</string>
 </resources>

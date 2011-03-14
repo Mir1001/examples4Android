@@ -9,21 +9,21 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class StevecArrayAdapter extends ArrayAdapter<Stevec> { //Step 4.8 POPRAVI Stevec -> Rezultati
+public class RezultatArrayAdapter extends ArrayAdapter<Rezultat> { //Step 4.8 POPRAVI Stevec -> Rezultati
 	LayoutInflater mInflater;
-	public StevecArrayAdapter(Context context, int textViewResourceId, List<Stevec> objects) { //Step 4.8 POPRAVI Stevec ->Rezultati
+	public RezultatArrayAdapter(Context context, int textViewResourceId, List<Rezultat> objects) { //Step 4.8 POPRAVI Stevec ->Rezultati
 		super(context, textViewResourceId,objects);
 	    mInflater = LayoutInflater.from(context);
 	}
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		Stevec tmp = getItem(position); //Step Step 4.7 pridobi data
+		Rezultat tmp = getItem(position); //Step Step 4.7 pridobi data
 		ViewHolder holder;
 		// When convertView is not null, we can reuse it directly, there is no need
 		// to reinflate it. We only inflate a new View when the convertView supplied
 		// by ListView is null.
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.stevec_layout, null); //Step Step 4.7.5 DOLOČI ROW LL
+			convertView = mInflater.inflate(R.layout.rezultat_layout, null); //Step Step 4.7.5 DOLOČI ROW LL
 			// Creates a ViewHolder and store references to the two children views
 			// we want to bind data to.
 			holder = new ViewHolder();
@@ -37,8 +37,8 @@ public class StevecArrayAdapter extends ArrayAdapter<Stevec> { //Step 4.8 POPRAV
 			holder = (ViewHolder) convertView.getTag();
 		}
 		// Bind the data efficiently with the holder.
-		holder.one.setText(""+tmp.getStanje()); //Step 4.8 POPRAVI
-		holder.two.setText(tmp.getName()); //Step 4.8 POPRAVI
+		holder.one.setText(""+tmp.getTock()); //Step 4.8 POPRAVI
+		holder.two.setText(tmp.getIme()); //Step 4.8 POPRAVI
 		//holder.icon.setImageBitmap((position & 1) == 1 ? mIcon1 : mIcon2);
 		return convertView;
 	}

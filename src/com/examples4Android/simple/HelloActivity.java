@@ -23,9 +23,12 @@ public class HelloActivity extends Activity implements OnClickListener {
 	public static final String FILE_NAME_RANDOM="nakljucna.txt";
 	private static final int TEST_START_ACTIVITY_ID = 1;
 	private static final int TEST_LIST_ACTIVITY_ID = 2;  //Step 4.12
+	private static final int REZULTATI_LIST_ACTIVITY_ID=3;
 	Button inc, dec, show, reset, generiraj;
 	TextView tv_prikaz, tv_kliki;
 	EditText maxNumber;
+	EditText rezultat;
+	EditText ime;
 
 	Random rnd;
 	private int ugibaj;
@@ -37,7 +40,8 @@ public class HelloActivity extends Activity implements OnClickListener {
 		app = (ApplicationExample) getApplication(); //Step 4.4
 		System.out.println("Moj test");
 		setContentView(R.layout.main);
-
+		ime = (EditText) findViewById(R.id.editTextIme);
+		rezultat=(EditText) findViewById(R.id.editTextRezultat);
 		inc = (Button) findViewById(R.id.btnInc);
 		dec = (Button) findViewById(R.id.btnDec);
 		show = (Button) findViewById(R.id.btnShow);
@@ -55,8 +59,19 @@ public class HelloActivity extends Activity implements OnClickListener {
 		generiraj.setOnClickListener(this);
 		rnd = new Random();
 		ugibaj = rnd.nextInt(21);
-		
 
+
+	}
+	public void rezultati_odpri(View v) {
+		Intent moj2=new Intent(this,RezultatiListActivity.class);
+		//this.startActivity(moj);
+		this.startActivityForResult(moj2, REZULTATI_LIST_ACTIVITY_ID);
+	}
+	public void mojSave(View v) {
+		Rezultat tmp = new Rezultat();
+		tmp.setIme(ime.getEditableText().toString());
+		tmp.setTock(Integer.parseInt(rezultat.getEditableText().toString()));
+		app.addRezultat(tmp);
 	}
 	public void myKlik(View v) {
 		switch (v.getId()) {
@@ -73,7 +88,8 @@ public class HelloActivity extends Activity implements OnClickListener {
 			Intent moj2=new Intent(this,StevecListActivity.class);
 			//this.startActivity(moj);
 			this.startActivityForResult(moj2, TEST_LIST_ACTIVITY_ID);
-			
+			break;
+
 		}
 	}
 	@Override
@@ -81,7 +97,7 @@ public class HelloActivity extends Activity implements OnClickListener {
 		super.onStart();
 		try {
 			myfile = new PrintWriter(
-				    openFileOutput(FILE_NAME_RANDOM, Context.MODE_PRIVATE));
+					openFileOutput(FILE_NAME_RANDOM, Context.MODE_PRIVATE));
 		} catch (FileNotFoundException e) {
 			Log.e(TAG,"Datoteka napake "+e.toString());
 			e.printStackTrace();
@@ -106,7 +122,7 @@ public class HelloActivity extends Activity implements OnClickListener {
 		editor.commit(); //pref shranim novo vrednost
 		if (myfile!=null) myfile.close();
 	}
-	
+
 	private void showKlikRandom() {
 		String a;
 		a="Dec klik:"+app.stDec.getStanje()+" Inc klik:"+app.stInc.getStanje()+" Nakljucna:"+ugibaj;
@@ -115,18 +131,26 @@ public class HelloActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data){
 
-        // See which child activity is calling us back.
+		// See which child activity is calling us back.
 
-        switch (requestCode) {
+		switch (requestCode) {
 
-            case TEST_START_ACTIVITY_ID: 
-            	Toast toast = Toast.makeText(this,"resultCode="+resultCode , Toast.LENGTH_LONG);
-            	toast.show();
-            	break;
-        }
+		case TEST_START_ACTIVITY_ID: 
+			Toast toast = Toast.makeText(this,"resultCode="+resultCode , Toast.LENGTH_LONG);
+			toast.show();
+			break;
+		case REZULTATI_LIST_ACTIVITY_ID: 
+			switch (resultCode) {
+			case RESULT_CANCELED:
+				finish();
+				break;
+			}
+			Toast.makeText(this,"Vrnjen iz rezultatov resultCode="+resultCode , Toast.LENGTH_LONG).show();
+			break;
+		}
 	}
 
-         
+
 	@Override
 	public void onClick(View arg0) {
 		if (arg0.getId()==R.id.btnInc) {
@@ -150,6 +174,7 @@ public class HelloActivity extends Activity implements OnClickListener {
 						if (arg0.getId()==R.id.btnGenerirajRandomDo) {
 							try {
 								ugibaj = rnd.nextInt(Integer.parseInt(""+maxNumber.getText()));
+								app.addStevec("Nakljucni", ugibaj);
 								if (myfile!=null) myfile.println(""+ugibaj);
 							} catch (Exception e) {
 								Log.w(TAG, "Pretvarjas:"+maxNumber.getText()+" "+e.toString());
