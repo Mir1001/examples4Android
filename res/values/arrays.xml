@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="min_log_opis">
+		<item>Pet</item>
+		<item>Deset</item>
+		<item>1/4 stotke</item>
+		<item>50</item>
+		<item>100</item>
+		<item>200</item>
+		<item>500</item>
+	</string-array>
+	<string-array name="min_log_distance">
+		<item>5</item>
+		<item>10</item>
+		<item>25</item>
+		<item>50</item>
+		<item>100</item>
+		<item>200</item>
+		<item>500</item>
+	</string-array>
+</resources>

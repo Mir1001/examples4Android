@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<!-- Display settings -->
+	<PreferenceCategory android:title="Boolean in Lista">
+		<CheckBoxPreference android:key="ISOK"
+			android:title="Kam gremo?" android:summaryOn="Gremo domov"
+			android:summaryOff="Gremo v sluzbo!"
+			android:defaultValue="true" />
+		<ListPreference android:key="FREQENCY" android:title="Lista naslov"
+			android:summary="Lista summary" android:entries="@array/min_log_opis"
+			android:entryValues="@array/min_log_distance" android:dialogTitle="Izberi vrednost"
+			android:defaultValue="25" />
+	</PreferenceCategory>
+	<PreferenceCategory android:title="Edit example">
+		<EditTextPreference android:key="PREF_DEBUG_LOCATION"
+			android:title="DEBUG" android:summary="Debug" android:dialogTitle="Debug value" />
+	</PreferenceCategory>
+</PreferenceScreen>

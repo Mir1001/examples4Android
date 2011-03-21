@@ -3,6 +3,7 @@ package com.examples4Android.simple;
 import java.util.ArrayList;
 
 import com.examples4Android.simple.data.DBAdapterStevec;
+import com.examples4Android.simple.db.DBAdapterRezultat;
 
 import android.app.Application;
 import android.database.Cursor;
@@ -15,21 +16,25 @@ public class ApplicationExample extends Application {
 	Stevec mojStevec;
 	Stevec stInc,stDec;
 	DBAdapterStevec db;
+	DBAdapterRezultat db1;
 	public ArrayList<Rezultat> rezultati;
 	RezultatArrayAdapter rezultatiList; 
 
 	public void onCreate() {
         super.onCreate(); //ne pozabi
         db = new DBAdapterStevec(this); 
+        db1 = new DBAdapterRezultat(this); 
         lista = new ArrayList<Stevec>(); //inicializirat
         rezultati = new ArrayList<Rezultat>(); //inicializirat
         init();
+        fillFromDBRezultati();
         fillFromDB();
         stevci = new StevecArrayAdapter(this, R.layout.stevec_layout,lista); //Step 4.10 Globalna lista
         rezultatiList = new RezultatArrayAdapter(this, R.layout.rezultat_layout, rezultati);
 	}
 	
 	public void addRezultat(Rezultat tmp) {
+		addDBRezultat(tmp);
 		rezultatiList.add(tmp);
 	}
 	
@@ -78,7 +83,28 @@ public class ApplicationExample extends Application {
 		s.setDbID(db.insertStevc(s));
 		db.close();	
 	}
-	//DB konec
+
+	
+	//DB dodano
+	public void fillFromDBRezultati() {
+		db1.open();
+		Cursor c = db1.getAll();
+		Rezultat tmp;
+		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+			tmp = new Rezultat();
+			tmp.setIme(c.getString(DBAdapterRezultat.POS_NAME));
+			tmp.setTock(c.getInt(DBAdapterRezultat.POS_STANJE));
+			tmp.setId(c.getLong(DBAdapterRezultat.POS__ID));
+			rezultati.add(tmp); 
+		}
+		c.close();
+		db1.close();
+	}
+	public void addDBRezultat(Rezultat s) {
+		db1.open();
+		s.setId(db1.insertRezultat(s));
+		db1.close();	
+	}	//DB konec
 	public void remove(Stevec a) {
 		if (a!=null)
 		stevci.remove(a);  //Step 4.10 Globalna lista

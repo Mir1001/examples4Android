@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:id="@+id/dialogTest" android:icon="@drawable/joke" android:title="Exit"></item>
+  <item android:id="@+id/itemSettings" android:icon="@android:drawable/ic_menu_preferences" android:title="Nastavitve"></item>
+</menu>
+<!--  @string/labeloUporabiNamestoFixText -->
