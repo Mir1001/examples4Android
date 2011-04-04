@@ -16,4 +16,5 @@
     <string name="dodaj">Save</string>
     <string name="list_rezultati">Prikaži rezultate</string>
     <string name="exit">Izhod</string>
+    <string name="btn_go">Go task</string>
 </resources>

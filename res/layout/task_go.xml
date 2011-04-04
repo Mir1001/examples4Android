@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:id="@+id/btn_go_task2" android:onClick="my_click">
+	<Button android:layout_height="wrap_content" android:text="@string/btn_go" android:layout_width="match_parent" android:onClick="my_click" android:id="@+id/btn_go_task1"></Button>
+	<Button android:layout_height="wrap_content" android:layout_width="match_parent" android:onClick="my_click" android:text="@string/btn_go" android:id="@+id/btn_go_task22"></Button>
+	<TextView android:layout_height="wrap_content" android:id="@+id/textViewResult" android:layout_width="match_parent" android:text="TextView"></TextView>
+</LinearLayout>

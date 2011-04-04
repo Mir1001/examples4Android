@@ -24,6 +24,7 @@ public class HelloActivity extends Activity implements OnClickListener {
 	private static final int TEST_START_ACTIVITY_ID = 1;
 	private static final int TEST_LIST_ACTIVITY_ID = 2;  //Step 4.12
 	private static final int REZULTATI_LIST_ACTIVITY_ID=3;
+	//private static final int REZULTATI_LIST_ACTIVITY_ID=3;
 	Button inc, dec, show, reset, generiraj;
 	TextView tv_prikaz, tv_kliki;
 	EditText maxNumber;
@@ -67,6 +68,11 @@ public class HelloActivity extends Activity implements OnClickListener {
 		//this.startActivity(moj);
 		this.startActivityForResult(moj2, REZULTATI_LIST_ACTIVITY_ID);
 	}
+	public void goTask(View v) {
+		Intent moj2=new Intent(this,ATaskActivity.class);
+		this.startActivity(moj2);
+	}
+	
 	public void mojSave(View v) {
 		Rezultat tmp = new Rezultat();
 		tmp.setIme(ime.getEditableText().toString());

@@ -19,6 +19,7 @@
 	<Button android:layout_height="wrap_content" android:text="@string/sreset"
 		android:id="@+id/btnReset" android:layout_width="wrap_content"
 		android:layout_gravity="right"></Button>
+	<Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/btnOpenTask" android:text="@string/btn_go" android:onClick="goTask"></Button>
 	<Button android:layout_height="wrap_content"
 		android:layout_width="wrap_content" android:text="@string/goLista"
 		android:id="@+id/btnOpenList" android:onClick="myKlik"></Button>
