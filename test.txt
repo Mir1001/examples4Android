@@ -1,0 +1,55 @@
+package com.examples4Android.simple;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class HelloActivity extends Activity implements OnClickListener {
+    /** Called when the activity is first created. */
+	Button btnInc;
+	Button btnDec;
+	Button btnShow;
+	TextView tvResult;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        System.out.println("Moj test");
+        setContentView(R.layout.main);
+        String a=new String("aa");
+        btnInc = (Button) this.findViewById(R.id.buttonInc);
+        btnInc.setOnClickListener(this);
+        tvResult = (TextView) findViewById(R.id.textViewResult);
+        //btnInc =  findViewByID()
+       // btnInc.
+     //   btnInc = (Button) 
+    }
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.buttonInc) {
+			tvResult.setText("BO");
+			//add
+		}
+		
+	}
+}
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/hello"
+    />
+<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_inc" android:id="@+id/buttonInc"></Button>
+<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_dec" android:id="@+id/buttonDec"></Button>
+<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_show" android:id="@+id/buttonShow"></Button>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textViewResult" android:text="Rezultat"></TextView>
+</LinearLayout>

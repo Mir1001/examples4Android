@@ -53,6 +53,8 @@ public class ATaskActivity extends Activity {
 		}
 
 		protected void onPostExecute(Long tretjiArgument) {
+			
+			Toast.makeText(ATaskActivity.this,"Rezultat:"+tretjiArgument,Toast.LENGTH_LONG).show();
 			dialogWait.cancel();
 		}
 	}
@@ -65,6 +67,7 @@ public class ATaskActivity extends Activity {
 			progressDialog.setMessage("Delam...");
 			progressDialog.setCancelable(true);
 			progressDialog.show();
+			
 		}
 		protected Long doInBackground(Integer... prviArgument) {
 			long totalSize = 0;
@@ -79,7 +82,7 @@ public class ATaskActivity extends Activity {
 					Log.e("ERROR", "Thread Interrupted");
 				}
 				tmp = Math.round(((float) (i+1) / count) * 100);
-				publishProgress(tmp);
+				publishProgress(tmp,i);
 			}
 			return totalSize;
 		}
