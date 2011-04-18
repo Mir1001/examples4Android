@@ -29,6 +29,7 @@ public class MyPositionOverlay extends Overlay {
   }
   public void setLocation(Location location) {
     this.location = location;
+    locations.add(location);
   }
 	
   @Override
