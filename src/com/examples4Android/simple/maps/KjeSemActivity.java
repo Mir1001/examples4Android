@@ -1,11 +1,8 @@
 package com.examples4Android.simple.maps;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.Locale;
 
 import com.examples4Android.simple.R;
-import com.examples4Android.simple.R.id;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
@@ -13,9 +10,7 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 
 import android.content.Context;
-import android.location.Address;
 import android.location.Criteria;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -34,7 +29,7 @@ public class KjeSemActivity extends MapActivity {
 	MapController mapController;
 	MyPositionOverlay positionOverlay;
 
-	@Override
+	@Override   
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		System.out.println("Delo!");
@@ -48,7 +43,6 @@ public class KjeSemActivity extends MapActivity {
 		myMapView.displayZoomControls(false);
 
 		mapController.setZoom(17);
-
 
 		LocationManager locationManager;
 		String context = Context.LOCATION_SERVICE;
@@ -67,7 +61,8 @@ public class KjeSemActivity extends MapActivity {
 		String provider = locationManager.getBestProvider(criteria, true);
 
 		Location location = locationManager.getLastKnownLocation(provider);
-		my_updateWithNewLocation(location);
+		if (location!=null)
+		  my_updateWithNewLocation(location);
 
 		locationManager.requestLocationUpdates(provider, 2000, 10,   
 				locationListener);
@@ -105,10 +100,9 @@ public class KjeSemActivity extends MapActivity {
 
 			double lat = location.getLatitude();
 			double lng = location.getLongitude();
-			latLongString = "Lat:" + lat + "\nLong:" + lng;
+			latLongString = "Long:" + lng+"\n"+"Lat:" + lat ;
 
-			myLocationText.setText("Trenutni položaj je:" + 
-					latLongString); 
+			myLocationText.setText(latLongString); 
 		}
 	}
 }
