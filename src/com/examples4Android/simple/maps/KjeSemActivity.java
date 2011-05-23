@@ -1,6 +1,8 @@
 package com.examples4Android.simple.maps;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 import com.examples4Android.simple.R;
 import com.google.android.maps.GeoPoint;
@@ -10,14 +12,19 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 
 import android.content.Context;
+import android.location.Address;
 import android.location.Criteria;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class KjeSemActivity extends MapActivity {
+	private static final String TAG = "KjeSemActivity";
+
 	@Override
 	protected boolean isRouteDisplayed() {
 		return false;
@@ -82,7 +89,31 @@ public class KjeSemActivity extends MapActivity {
 		public void onStatusChanged(String provider, int status, 
 				Bundle extras){ }
 	};
+	
+    private String getLocationInfo(double latitude, double longitude) {
+        Geocoder gc = new Geocoder(this, Locale.getDefault());
+        //http://developer.android.com/reference/android/location/Geocoder.html
+        
+        try {
+          List<Address> addresses = gc.getFromLocation(latitude, 
+                                                       longitude, 1);
+          //obstaja tudi obratno iz imena latatude ... getFromLocationName
+          StringBuilder sb = new StringBuilder();
+          if (addresses.size() > 0) {
+            Address address = addresses.get(0);
 
+            for (int i = 0; i < address.getMaxAddressLineIndex(); i++)
+              sb.append(address.getAddressLine(i)).append("\n");
+              sb.append(address.getLocality()).append("\n");
+              sb.append(address.getPostalCode()).append("\n");
+              sb.append(address.getCountryName());
+          }
+          return  sb.toString();
+        } catch (IOException e) {
+        	Log.w(TAG,e.toString());
+        }
+        return "No location found";
+    }
 	private void my_updateWithNewLocation(Location location) {
 		String latLongString;
 		TextView myLocationText;
@@ -100,7 +131,8 @@ public class KjeSemActivity extends MapActivity {
 
 			double lat = location.getLatitude();
 			double lng = location.getLongitude();
-			latLongString = "Long:" + lng+"\n"+"Lat:" + lat ;
+			String geodata=getLocationInfo(lat, lng);
+			latLongString = "Long:" + lng+"\n"+"Lat:" + lat +"\n"+geodata;
 
 			myLocationText.setText(latLongString); 
 		}
