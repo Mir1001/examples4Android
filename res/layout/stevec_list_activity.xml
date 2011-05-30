@@ -7,15 +7,17 @@
          android:paddingRight="8dp">
 
      <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/exit" android:id="@+id/buttonExit" android:onClick="izhod" android:layout_gravity="top"></Button>
+     <TextView android:id="@id/android:empty"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="#FF0000"
+               android:text="No data" android:layout_gravity="top"/>
+    
      <ListView android:id="@id/android:list"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:layout_weight="1"
                android:drawSelectorOnTop="false"/>
 
-     <TextView android:id="@id/android:empty"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:background="#FF0000"
-               android:text="No data"/>
+    
  </LinearLayout>
