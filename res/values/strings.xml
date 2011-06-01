@@ -2,6 +2,7 @@
 <resources>
     <string name="hello">Zdravo Čas! Hello World, HelloActivity!</string>
     <string name="app_name">MyFirstActivity</string>
+        <string name="alarm_name">AlarmTest</string>
     <string name="btn_inc">Increment</string>
     <string name="btn_decrement">Decrement</string>
     <string name="btn_show">Show</string>
@@ -17,4 +18,9 @@
     <string name="list_rezultati">Prikaži rezultate</string>
     <string name="exit">Izhod</string>
     <string name="btn_go">Go task</string>
+    <string name="start_alarm">10</string>
+    <string name="alarm_btn">Start alarm in X sekund</string>
+        <string name="alarm_txt">Moje besedilo</string>
+        <string name="alarm_stop">Stop alarm</string>
+          <string name="alarm_start">START alarm</string>
 </resources>
