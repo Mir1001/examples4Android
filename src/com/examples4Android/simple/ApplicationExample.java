@@ -8,7 +8,7 @@ import com.examples4Android.simple.db.DBAdapterRezultat;
 import android.app.Application;
 import android.database.Cursor;
 
-public class ApplicationExample extends Application {
+public class ApplicationExample extends Application { 
 	//Step 4.1
 	//Step 4.2 popravi AndroidManifest.xml
 	public ArrayList<Stevec> lista;
@@ -19,6 +19,8 @@ public class ApplicationExample extends Application {
 	DBAdapterRezultat db1;
 	public ArrayList<Rezultat> rezultati;
 	RezultatArrayAdapter rezultatiList; 
+	public ArrayList<String> checkBoxListItems;
+	ChckBoxListArrayAdapter checkBoxList;
 
 	public void onCreate() {
         super.onCreate(); //ne pozabi
@@ -26,11 +28,13 @@ public class ApplicationExample extends Application {
         db1 = new DBAdapterRezultat(this); 
         lista = new ArrayList<Stevec>(); //inicializirat
         rezultati = new ArrayList<Rezultat>(); //inicializirat
+        checkBoxListItems = new ArrayList<String>();
         init();
         fillFromDBRezultati();
         fillFromDB();
         stevci = new StevecArrayAdapter(this, R.layout.stevec_layout,lista); //Step 4.10 Globalna lista
         rezultatiList = new RezultatArrayAdapter(this, R.layout.rezultat_layout, rezultati);
+        checkBoxList = new ChckBoxListArrayAdapter(this, R.layout.chkbox_list_layout, checkBoxListItems);
 	}
 	
 	public void addRezultat(Rezultat tmp) {
@@ -48,7 +52,10 @@ public class ApplicationExample extends Application {
 		//lista.add(mojStevec);
 		//lista.add(stInc);
 		//lista.add(stDec);
-		
+		for(int i = 0; i < 100; i++) {
+			String tmp = "Text "+i;
+			checkBoxListItems.add(tmp);
+		}
 	}
 	
 	public void add(Stevec a) {

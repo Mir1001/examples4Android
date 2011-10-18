@@ -23,6 +23,7 @@
 	<Button android:layout_height="wrap_content"
 		android:layout_width="wrap_content" android:text="@string/goLista"
 		android:id="@+id/btnOpenList" android:onClick="myKlik"></Button>
+	<Button android:layout_height="wrap_content" android:text="@string/openChckBoxList" android:layout_width="wrap_content" android:id="@+id/buttonChckBoxList" android:onClick="open_checkBox_list"></Button>
 	<LinearLayout android:layout_height="wrap_content" android:id="@+id/linearLayout2" android:layout_width="match_parent">
 		<TextView android:layout_height="wrap_content" android:id="@+id/textView1" android:text="@string/ime" android:layout_weight="1" android:layout_width="0dip"></TextView>
 		<EditText android:layout_height="wrap_content" android:text="Matej" android:id="@+id/editTextIme" android:layout_weight="3" android:layout_width="0dip"></EditText>

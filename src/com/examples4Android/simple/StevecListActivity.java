@@ -19,7 +19,6 @@ public class StevecListActivity extends ListActivity implements OnItemClickListe
 		this.getListView().setOnItemClickListener(this);
 
 	}
-	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int position, long id) {
 		Toast.makeText(this, "Pritisnili ste:"+app.stevci.getItem(position).getStanje(), Toast.LENGTH_LONG).show();
 		

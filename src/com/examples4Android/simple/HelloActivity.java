@@ -63,6 +63,11 @@ public class HelloActivity extends Activity implements OnClickListener {
 
 
 	}
+	public void open_checkBox_list(View v) {
+		Intent moj2=new Intent(this,ChckBoxListActivity.class);
+		//this.startActivity(moj);
+		this.startActivity(moj2);
+	}
 	public void rezultati_odpri(View v) {
 		Intent moj2=new Intent(this,RezultatiListActivity.class);
 		//this.startActivity(moj);
@@ -157,7 +162,6 @@ public class HelloActivity extends Activity implements OnClickListener {
 	}
 
 
-	@Override
 	public void onClick(View arg0) {
 		if (arg0.getId()==R.id.btnInc) {
 			app.mojStevec.inc();

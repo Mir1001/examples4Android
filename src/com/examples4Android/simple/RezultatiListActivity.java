@@ -38,7 +38,6 @@ public class RezultatiListActivity extends ListActivity implements OnItemClickLi
 			.setCancelable(false)
 			.setPositiveButton("Da", new DialogInterface.OnClickListener() {
 
-				@Override
 				public void onClick(DialogInterface dialog, int id) {
 					
 					RezultatiListActivity.this.setResult(RESULT_CANCELED);
@@ -62,7 +61,6 @@ public class RezultatiListActivity extends ListActivity implements OnItemClickLi
 		showDialog(EXIT_DIALOG);
 	}
 
-	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int position, long id) {
 		Toast.makeText(this, "Pritisnili ste:"+app.stevci.getItem(position).getStanje(), Toast.LENGTH_LONG).show();
 

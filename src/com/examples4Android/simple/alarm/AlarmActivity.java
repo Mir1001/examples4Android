@@ -37,7 +37,6 @@ public class AlarmActivity extends Activity implements OnClickListener{
 	                0, new Intent(AlarmActivity.this, MyAlarmService.class), 0);
 	    }
 
-	@Override
 	public void onClick(View v) {
 		if (v.getId() == R.id.btnAlarm) {
 	       long firstTime = SystemClock.elapsedRealtime();
