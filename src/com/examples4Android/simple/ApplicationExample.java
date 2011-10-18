@@ -19,7 +19,7 @@ public class ApplicationExample extends Application {
 	DBAdapterRezultat db1;
 	public ArrayList<Rezultat> rezultati;
 	RezultatArrayAdapter rezultatiList; 
-	public ArrayList<String> checkBoxListItems;
+	public ArrayList<Article> checkBoxListItems;
 	ChckBoxListArrayAdapter checkBoxList;
 
 	public void onCreate() {
@@ -28,7 +28,7 @@ public class ApplicationExample extends Application {
         db1 = new DBAdapterRezultat(this); 
         lista = new ArrayList<Stevec>(); //inicializirat
         rezultati = new ArrayList<Rezultat>(); //inicializirat
-        checkBoxListItems = new ArrayList<String>();
+        checkBoxListItems = new ArrayList<Article>();
         init();
         fillFromDBRezultati();
         fillFromDB();
@@ -53,8 +53,7 @@ public class ApplicationExample extends Application {
 		//lista.add(stInc);
 		//lista.add(stDec);
 		for(int i = 0; i < 100; i++) {
-			String tmp = "Text "+i;
-			checkBoxListItems.add(tmp);
+			checkBoxListItems.add(Article.getRandom());
 		}
 	}
 	

@@ -18,4 +18,5 @@
 		<item>200</item>
 		<item>500</item>
 	</string-array>
+	<color name="red">#FF0000</color>
 </resources>
