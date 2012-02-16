@@ -151,7 +151,7 @@ public class HelloActivity extends Activity implements OnClickListener {
 				finish();
 				break;
 			}
-			Toast.makeText(this,"Vrnjen iz rezultatov resultCode="+resultCode , Toast.LENGTH_LONG).show();
+			Toast.makeText(this," Vrnjen iz rezultatov resultCode="+resultCode , Toast.LENGTH_LONG).show();
 			break;
 		}
 	}
